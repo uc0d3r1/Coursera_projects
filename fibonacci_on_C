@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+main()
+{
+   int n = 6, first = 0, second = 1, move, c; /* counting 6 times with n, creating first. sec. variables to count the moves, move is each hop to next one, c just a counter for loop */
+
+   for ( c = 0 ; c < n ; c++ ) /* starting to count from 0, until c is lower then 5 add plus one each on each loop cycle */
+   {
+      if ( c <= 1 ) /* two first counts where start with 0 and second number 1 is known */
+         move = c;
+      else
+      {
+         move = first + second;
+         first = second;
+         second = move; /* every subsequent term is the sum of previous two terms - fibonacci law :), in nutshell, having two last digits we can get the third of sum of two */
+      }
+      printf("%d\n",move); /* let's print this new symbol=new line */
+   }
+   return 0;
+}
